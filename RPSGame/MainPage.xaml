@@ -65,7 +65,7 @@
                    HorizontalOptions="Center" VerticalOptions="Center" 
                    Margin="5"
                    Text="System's Choice: "
-                   TextColor="Black"
+                   TextColor="Blue"
                 />
 
             <!--Labels to show the player's and the system's scores-->
@@ -74,13 +74,13 @@
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
                    Text="Player Score: 0" 
-                   TextColor="Black"
+                   TextColor="Blue"
                 />
             <Label 
                    Grid.Row="3" Grid.Column="1" 
                    Text="System Score: 0" 
                     VerticalOptions="Center"
-                    TextColor="Black"
+                    TextColor="Blue"
                 />
 
             <!--Button to start a new game, initialliy disabled-->
