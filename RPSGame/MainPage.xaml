@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RPSGame.MainPage">
+
+    <Grid>
+        <Grid RowDefinitions="*,2*,.5*,*,*" ColumnDefinitions="*,*"
+              Background="White">
+            
+            <!--The header label-->
+            <Label 
+                
+                Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                HorizontalOptions="Center"
+                Text="Rock Paper Scissors Game"
+                TextColor="Black"
+                BackgroundColor="White"
+                FontSize="Title" 
+                FontAttributes="Bold"/>
+
+            <!--Image controls to show the player's and the system's choice-->
+            <Image
+                   Grid.Row="1" Grid.Column="0" 
+                   HorizontalOptions="Center"
+                   Margin="5"
+                   Aspect="AspectFit"
+                    Source="question_mark.png"/>
+            <Image
+                   Grid.Row="1" Grid.Column="1" 
+                   HorizontalOptions="Center"
+                   Margin="5"
+                   Aspect="AspectFit"
+                    Source="question_mark.png"/>
+
+            <!--ImageButtons to capture the player's choice-->
+            <Grid 
+                Grid.Row="2"             
+                ColumnDefinitions="*,*,*" 
+                Margin="2">
+
+                <ImageButton
+                             Grid.Row="0" Grid.Column="0" 
+                             Aspect="AspectFit"
+                             HorizontalOptions="End"
+                             Source="rock_gesture.png"
+                    />
+                
+                <ImageButton
+                             Grid.Row="0" Grid.Column="1"
+                             Aspect="AspectFit"
+                             HorizontalOptions="Center"         
+                             Source="scissors_gesture.png"
+                    />
+                <ImageButton
+                             Grid.Row="0" Grid.Column="2" 
+                             Aspect="AspectFit"
+                             HorizontalOptions="Start" 
+                             Source="paper_gesture.png"
+                    />
+            </Grid>
+
+            <!--Label to show the system's choice-->
+            <Label
+                   Grid.Row="2" Grid.Column="1" 
+                   HorizontalOptions="Center" VerticalOptions="Center" 
+                   Margin="5"
+                   Text="System's Choice: "
+                   TextColor="Black"
+                />
+
+            <!--Labels to show the player's and the system's scores-->
+            <Label 
+                   Grid.Row="3" Grid.Column="0" 
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Text="Player Score: 0" 
+                   TextColor="Black"
+                />
+            <Label 
+                   Grid.Row="3" Grid.Column="1" 
+                   Text="System Score: 0" 
+                    VerticalOptions="Center"
+                    TextColor="Black"
+                />
+
+            <!--Button to start a new game, initialliy disabled-->
+            <Button
+                    
+                    Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"
+                    
+                    HorizontalOptions="Center"
+                    FontSize="Medium"
+                    Text="New Game" 
+                    IsEnabled="False"/>
+        </Grid>
+    </Grid>
+
+
+</ContentPage>
