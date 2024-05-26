@@ -1,36 +1,62 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RPSGame.MainPage">
-
+             x:Class="RPSGame.MainPage"
+             >
     <Grid>
         <Grid RowDefinitions="*,2*,.5*,*,*" ColumnDefinitions="*,*"
-              Background="White">
+              BackgroundColor="AntiqueWhite">
             
+            <Image
+                Source="mountains.png"
+                Aspect="AspectFill"
+                Opacity="0.65"
+                Grid.RowSpan="5"
+                Grid.ColumnSpan="2"/>
             <!--The header label-->
             <Label 
                 
                 Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
                 HorizontalOptions="Center"
+                VerticalOptions="Center"
                 Text="Rock Paper Scissors Game"
                 TextColor="Black"
                 BackgroundColor="White"
                 FontSize="Title" 
-                FontAttributes="Bold"/>
-
+                FontAttributes="Bold"
+                IsVisible="true"/>
+            <Label 
+                x:Name="Rounds"
+                Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                HorizontalOptions="Center" VerticalOptions="Center"       
+                FontSize="Title" 
+                FontAttributes="Bold"
+                TextColor="Black"
+                IsVisible="true"/>
+            <Label
+                x:Name="Label4"
+                Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                HorizontalOptions="Center" VerticalOptions="End"
+                Text="Select your choice" TextColor="Black" FontAttributes="Bold"
+                IsVisible="false"
+                />
             <!--Image controls to show the player's and the system's choice-->
             <Image
+                   x:Name="UserQuestionMark"
                    Grid.Row="1" Grid.Column="0" 
                    HorizontalOptions="Center"
                    Margin="5"
                    Aspect="AspectFit"
-                    Source="question_mark.png"/>
+                   Source="question_mark.png"
+                   IsVisible="true"/>
             <Image
+                   x:Name="SystemQuestionMark"
                    Grid.Row="1" Grid.Column="1" 
                    HorizontalOptions="Center"
                    Margin="5"
                    Aspect="AspectFit"
-                    Source="question_mark.png"/>
+                   Source="question_mark.png"
+                   IsVisible="true"/>
 
             <!--ImageButtons to capture the player's choice-->
             <Grid 
@@ -39,61 +65,93 @@
                 Margin="2">
 
                 <ImageButton
+                             x:Name="RockButton"
                              Grid.Row="0" Grid.Column="0" 
                              Aspect="AspectFit"
+                             BackgroundColor="Gray"
                              HorizontalOptions="End"
                              Source="rock_gesture.png"
+                             IsEnabled="False"
+                             Clicked="OnClick_RockButton"
+                             Opacity="10"
+                             IsVisible="true"
                     />
                 
                 <ImageButton
+                             x:Name="ScissorsButton"
                              Grid.Row="0" Grid.Column="1"
                              Aspect="AspectFit"
+                             BackgroundColor="Gray"
                              HorizontalOptions="Center"         
                              Source="scissors_gesture.png"
+                             IsEnabled="False"
+                             Clicked="OnClick_ScissorButton"
+                             Opacity="10"
+                             IsVisible="true"
                     />
                 <ImageButton
+                             x:Name="PaperButton"
                              Grid.Row="0" Grid.Column="2" 
                              Aspect="AspectFit"
+                             BackgroundColor="Gray"
                              HorizontalOptions="Start" 
                              Source="paper_gesture.png"
+                             IsEnabled="False"
+                             Clicked="OnClick_PaperButton"
+                             Opacity="10"
+                             IsVisible="true"
                     />
             </Grid>
 
             <!--Label to show the system's choice-->
             <Label
+                   x:Name="Label1"
                    Grid.Row="2" Grid.Column="1" 
-                   HorizontalOptions="Center" VerticalOptions="Center" 
+                   HorizontalOptions="Center" VerticalOptions="End" 
+                   FontSize="Medium"
                    Margin="5"
                    Text="System's Choice: "
-                   TextColor="Blue"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   IsVisible="true"
                 />
 
             <!--Labels to show the player's and the system's scores-->
             <Label 
+                   x:Name="Label2"
                    Grid.Row="3" Grid.Column="0" 
                    HorizontalOptions="Center"
                    VerticalOptions="Center"
+                   FontSize="Medium"
                    Text="Player Score: 0" 
-                   TextColor="Blue"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   IsVisible="true"
                 />
             <Label 
+                   x:Name="Label3"
                    Grid.Row="3" Grid.Column="1" 
                    Text="System Score: 0" 
-                    VerticalOptions="Center"
-                    TextColor="Blue"
+                   FontSize="Medium"  
+                   VerticalOptions="Center" HorizontalOptions="Center"
+                   TextColor="Black"
+                   FontAttributes="Bold"
+                   IsVisible="true"
                 />
 
             <!--Button to start a new game, initialliy disabled-->
             <Button
-                    
+                    x:Name="NewGameButton"                    
                     Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3"
-                    
-                    HorizontalOptions="Center"
+                    HorizontalOptions="Center" VerticalOptions="Center"
+                    TextColor="White"
+                    BackgroundColor="BlueViolet"
                     FontSize="Medium"
                     Text="New Game" 
-                    IsEnabled="False"/>
-        </Grid>
+                    Clicked="OnClick_NewGameButton"
+                    IsEnabled="True"/>
+
+        </Grid>           
     </Grid>
-
-
+ 
 </ContentPage>
