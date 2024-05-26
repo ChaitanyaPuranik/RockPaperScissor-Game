@@ -3,15 +3,17 @@ namespace RPSGame;
 
 public partial class MainPage : ContentPage
 {
-    string userchoice;
-    string systemchoice;
+    string userchoice; // variables choice of system and user 
+    string systemchoice; 
+
     string rock = "rock";
     string paper = "paper";
-    string scissor = "scissor";
+    string scissor = "scissor"; // variables of rock,paper and scissors to help in comparision for determining winner
+    
     int playersScore;
     int systemScore;
 
-    int systemNumber;
+    int systemNumber; // variable to store random number which is used in generating system choice
     Random randomGen = new Random();
     int roundNumber=0; 
     
@@ -20,7 +22,7 @@ public partial class MainPage : ContentPage
         InitializeComponent();
     }
     
-    private void OnClick_NewGameButton(object sender, EventArgs e)
+    private void OnClick_NewGameButton(object sender, EventArgs e) //sets various attributes of Image, ImageButton and Label
     {
         playersScore = 0;
         systemScore = 0;
@@ -39,9 +41,8 @@ public partial class MainPage : ContentPage
         UpdateRound();        
     }
 
-    private bool VerifyRound()
+    private bool VerifyRound() // returns true if 3 rounds are over 
     {
-        
         roundNumber++;
         if (roundNumber > 3)
         {
@@ -50,7 +51,7 @@ public partial class MainPage : ContentPage
         return true;
     }
    
-    private void UpdateRound()
+    private void UpdateRound() // verifies if 3 rounds are completed. If completed then displays winner
     {
         bool round = VerifyRound();
         if (round)
@@ -62,7 +63,7 @@ public partial class MainPage : ContentPage
             ShowWinner();
         }
     }
-    private void ShowWinner()
+    private void ShowWinner() //Displays winner and resets NewGameButton and RPS buttons and roundNumber
     {
         Rounds.Text = "GAME OVER";
         if (playersScore == systemScore)
@@ -85,7 +86,7 @@ public partial class MainPage : ContentPage
         ScissorsButton.IsEnabled = false;
         roundNumber = 0;
     }
-    private void DetermineWinner()
+    private void DetermineWinner() 
     {
         if(userchoice == systemchoice)
         {
@@ -105,7 +106,7 @@ public partial class MainPage : ContentPage
             Label3.Text = $"System Score: {systemScore}";
         }
 
-        UpdateRound();
+        UpdateRound(); // Updates round after determining winner
     }
     
     private void OnClick_PaperButton(object sender, EventArgs e)
@@ -132,7 +133,7 @@ public partial class MainPage : ContentPage
         DetermineWinner();
     }
     
-    private void GenerateSystemChoice()
+    private void GenerateSystemChoice() 
     {   /* 1: Rock
          * 2: Paper
          * 3: Scissor
