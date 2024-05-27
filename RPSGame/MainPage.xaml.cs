@@ -44,7 +44,7 @@ public partial class MainPage : ContentPage
     private bool VerifyRound() // returns true if 3 rounds are over 
     {
         roundNumber++;
-        if (roundNumber > 3)
+        if (roundNumber > 3 || playersScore == 2 || systemScore == 2)
         {
             return false;
         }
@@ -63,6 +63,7 @@ public partial class MainPage : ContentPage
             ShowWinner();
         }
     }
+   
     private void ShowWinner() //Displays winner and resets NewGameButton and RPS buttons and roundNumber
     {
         Rounds.Text = "GAME OVER";
@@ -70,11 +71,11 @@ public partial class MainPage : ContentPage
         {
             Label4.Text = "Tie";
         }
-        else if (playersScore > systemScore)
+        else if (playersScore > systemScore || playersScore == 2)
         {
             Label4.Text = "You Win";
         }
-        else
+        else if(systemScore > playersScore || systemScore == 2)
         {
             Label4.Text = "You lose";
         }
@@ -86,6 +87,7 @@ public partial class MainPage : ContentPage
         ScissorsButton.IsEnabled = false;
         roundNumber = 0;
     }
+   
     private void DetermineWinner() 
     {
         if(userchoice == systemchoice)
@@ -96,13 +98,13 @@ public partial class MainPage : ContentPage
                 (userchoice == paper && systemchoice == rock) ||
                 (userchoice == scissor && systemchoice ==  paper))
         {
-            playersScore += 10;
+            playersScore++;
             Label2.Text = $"Player Score: {playersScore}";
 
         }
         else
         {
-            systemScore += 10;
+            systemScore++;
             Label3.Text = $"System Score: {systemScore}";
         }
 
