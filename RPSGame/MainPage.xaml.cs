@@ -69,15 +69,16 @@ public partial class MainPage : ContentPage
         Rounds.Text = "GAME OVER";
         if (playersScore == systemScore)
         {
-            Label4.Text = "Tie";
+            //Label4.Text = "Tie";
+            DisplayAlert("GAME OVER", "TIE", "Ok");
         }
         else if (playersScore > systemScore || playersScore == 2)
         {
-            Label4.Text = "You Win";
+            DisplayAlert("GAME OVER", "YOU WIN", "Ok");
         }
         else if(systemScore > playersScore || systemScore == 2)
         {
-            Label4.Text = "You lose";
+            DisplayAlert("GAME OVER", "YOU LOSE", "Ok");
         }
 
         NewGameButton.IsEnabled = true;
