@@ -21,6 +21,11 @@ public partial class MainPage : ContentPage
     {
         InitializeComponent();
     }
+    /// <summary>
+    /// reets the player and system attributes. Can be accessed only when round is over
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     
     private void OnClick_NewGameButton(object sender, EventArgs e) //sets various attributes of Image, ImageButton and Label
     {
@@ -40,7 +45,10 @@ public partial class MainPage : ContentPage
         Label4.IsVisible=true;
         UpdateRound();        
     }
-
+    /// <summary>
+    /// returns true if 3 rounds are not completed
+    /// </summary>
+    /// <returns></returns>
     private bool VerifyRound() // returns true if 3 rounds are over 
     {
         roundNumber++;
@@ -51,6 +59,9 @@ public partial class MainPage : ContentPage
         return true;
     }
    
+    /// <summary>
+    /// updates round number after round is played
+    /// </summary>
     private void UpdateRound() // verifies if 3 rounds are completed. If completed then displays winner
     {
         bool round = VerifyRound();
@@ -63,8 +74,11 @@ public partial class MainPage : ContentPage
             ShowWinner();
         }
     }
-   
-    private void ShowWinner() //Displays winner and resets NewGameButton and RPS buttons and roundNumber
+
+    /// <summary>
+    /// Displays the winner resets NewGameButton and RPS buttons and roundNumber
+    /// </summary>
+    private void ShowWinner() 
     {
         Rounds.Text = "GAME OVER";
         if (playersScore == systemScore)
@@ -89,6 +103,10 @@ public partial class MainPage : ContentPage
         roundNumber = 0;
     }
    
+    /// <summary>
+    /// determines the winner by comparing choices
+    /// </summary>
+    
     private void DetermineWinner() 
     {
         if(userchoice == systemchoice)
@@ -111,6 +129,11 @@ public partial class MainPage : ContentPage
 
         UpdateRound(); // Updates round after determining winner
     }
+    /// <summary>
+    /// generates corresponding image and assigns value to userchoice
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     
     private void OnClick_PaperButton(object sender, EventArgs e)
     {
@@ -119,7 +142,12 @@ public partial class MainPage : ContentPage
         GenerateSystemChoice();
         DetermineWinner();
     }
-
+    /// <summary>
+    /// generates corresponding image and assigns value to userchoice
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    
     private void OnClick_RockButton(object sender, EventArgs e)
     {
         UserQuestionMark.Source = ImageSource.FromFile("rock.png");
@@ -127,7 +155,12 @@ public partial class MainPage : ContentPage
         GenerateSystemChoice();
         DetermineWinner();
     }
-
+    /// <summary>
+    /// generates corresponding image and assigns value to userchoice
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    
     private void OnClick_ScissorButton(object sender, EventArgs e)
     {
         UserQuestionMark.Source = ImageSource.FromFile("scissors.png");
@@ -135,6 +168,9 @@ public partial class MainPage : ContentPage
         GenerateSystemChoice();
         DetermineWinner();
     }
+    /// <summary>
+    /// generates system choice randomly using random function
+    /// </summary>
     
     private void GenerateSystemChoice() 
     {   /* 1: Rock
